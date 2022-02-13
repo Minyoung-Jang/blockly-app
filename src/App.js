@@ -23,7 +23,7 @@
 
 import React from 'react';
 import './App.css';
-
+import * as Blockly from 'blockly/core';
 
 import BlocklyComponent, { Block, Value, Field, Shadow } from './Blockly';
 
@@ -31,6 +31,7 @@ import BlocklyJS from 'blockly/javascript';
 
 import './blocks/customblocks';
 import './generator/generator';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class App extends React.Component {
               <xml xmlns="http://www.w3.org/1999/xhtml">
               </xml>
             `}>
-            <Block type="test_react_field" />
+            <Block type="controls_repeat_ext" />
             <Block type="test_react_date_field" />
             <Block type="controls_ifelse" />
             <Block type="logic_compare" />
@@ -85,9 +86,32 @@ class App extends React.Component {
               </Value>
             </Block>
           </BlocklyComponent>
+          <button onClick={this.runWorkspace}>버튼</button>
       </div>
     );
   }
+
+  // generateCode = () => {
+  //   // 무한루프 방지 설정
+  //   window.LoopTrap = 1000;
+  //   Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0) throw "Infinite loop.";';
+  //   const code = Blockly.JavaScript.workspaceToCode(workspace);
+  //   // 무한루프 방지 해제
+  //   Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+  //   return code;
+  // };
+
+  // runWorkspace = async () => {
+  //   const code = generateCode();
+  //   console.log(code);
+  //   try {
+  //     console.log('Now running...');
+  //     await eval(code);
+  //     console.log('Done.');
+  //   } catch (e) {
+  //     alert(e);
+  //   }
+  // };
 }
 
 export default App;

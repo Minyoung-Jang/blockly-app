@@ -33,12 +33,17 @@ import '../fields/DateField';
 
 var testReactField = {
   "type": "test_react_field",
-  "message0": "custom field %1",
+  "message0": "커스텀 필드 %1 %2",
   "args0": [
     {
       "type": "field_react_component",
       "name": "FIELD",
-      "text": "Click me"
+      "text": "HELLO"
+    },
+    {
+      "type": "field_react_component",
+      "name": "FIELD",
+      "text": "HELLO"
     },
   ],
   "previousStatement": null,
@@ -49,6 +54,7 @@ Blockly.Blocks['test_react_field'] = {
   init: function() {
     this.jsonInit(testReactField);
     this.setStyle('loop_blocks');
+    this.toLocaleString('ko');
   }
 };
 
