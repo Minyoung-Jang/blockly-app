@@ -26,6 +26,7 @@
 
 
 import * as Blockly from 'blockly/core';
+import BlocklyJS from 'blockly/javascript';
 
 // Since we're using json to initialize the field, we'll need to import it.
 import '../fields/BlocklyReactField';
@@ -37,8 +38,8 @@ var testReactField = {
   "args0": [
     {
       "type": "field_react_component",
-      "name": "FIELD",
-      "text": "HELLO"
+      "name": "Name",
+      "text": "Name"
     },
     {
       "type": "field_react_component",
@@ -46,8 +47,17 @@ var testReactField = {
       "text": "HELLO"
     },
   ],
+  
   "previousStatement": null,
   "nextStatement": null,
+};
+
+Blockly.JavaScript['test_react_field'] = function (block) {
+  // var text_name = block.getFieldValue('Name');
+  var text_name = block.args0;
+  console.log(block);
+  var code = 'alert("' + text_name +'");\n';
+  return code;
 };
 
 Blockly.Blocks['test_react_field'] = {
@@ -70,6 +80,13 @@ var reactDateField = {
   ],
   "previousStatement": null,
   "nextStatement": null,
+};
+
+Blockly.Blocks['test_react_date_field'] = function (block) {
+
+  // TODO: Assemble Python into code variable.
+  var code = 'console.log(' + block.args0[0]["date"] +');\n';
+  return code;
 };
 
 Blockly.Blocks['test_react_date_field'] = {
