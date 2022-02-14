@@ -46,7 +46,6 @@ class App extends React.Component {
       this.simpleWorkspace.current.workspace
     );
     console.log(code);
-    DartEval.eval(code);
   }
 
   render() {
