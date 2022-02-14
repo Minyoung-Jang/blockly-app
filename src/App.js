@@ -28,6 +28,8 @@ import * as Blockly from 'blockly/core';
 import BlocklyComponent, { Block, Value, Field, Shadow } from './Blockly';
 
 import BlocklyJS from 'blockly/javascript';
+import BlocklyDart from 'blockly/dart';
+import DartEval from 'blockly/dart_compressed';
 
 import './blocks/customblocks';
 import './generator/generator';
@@ -40,78 +42,65 @@ class App extends React.Component {
   }
 
   generateCode = () => {
-    var code = BlocklyJS.workspaceToCode(
+    var code = BlocklyDart.workspaceToCode(
       this.simpleWorkspace.current.workspace
     );
     console.log(code);
+    DartEval.eval(code);
   }
 
   render() {
     return (
       <div className="App">
-          <BlocklyComponent
-            readOnly={false} trashcan={true} media={'media/'}
-            
-            move={{
-              scrollbars: true,
-              drag: true,
-              wheel: true
-            }}
-            initialXml={`
+        <button onClick={this.generateCode}> 바꾸기 </button>
+        <BlocklyComponent
+          readOnly={false} trashcan={true} media={'media/'}
+          ref={this.simpleWorkspace}
+          move={{
+            scrollbars: true,
+            drag: true,
+            wheel: true
+          }}
+          initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
               </xml>
             `}>
-            <Block type="controls_repeat_ext" />
-            <Block type="test_react_date_field" />
-            <Block type="controls_ifelse" />
-            <Block type="logic_compare" />
-            <Block type="logic_operation" />
-            <Block type="controls_repeat_ext">
-              <Value name="TIMES">
-                <Shadow type="math_number">
-                  <Field name="NUM">10</Field>
-                </Shadow>
-              </Value>
-            </Block>
-            <Block type="logic_operation" />
-            <Block type="logic_negate" />
-            <Block type="logic_boolean" />
-            <Block type="logic_null" disabled="false" />
-            <Block type="logic_ternary" />
-            <Block type="text_charAt">
-              <Value name="VALUE">
-                <Block type="variables_get">
-                  <Field name="VAR">text</Field>
-                </Block>
-              </Value>
-            </Block>
-          </BlocklyComponent>
-          <button onClick={this.runWorkspace}>버튼</button>
+          <Block type="controls_repeat_ext" />
+          <Block type="test_react_date_field" />
+          <Block type="controls_ifelse" />
+          <Block type="logic_compare" />
+          <Block type="logic_operation" />
+          <Block type="controls_repeat_ext">
+            <Value name="TIMES">
+              <Shadow type="math_number">
+                <Field name="NUM">10</Field>
+              </Shadow>
+            </Value>
+          </Block>
+          <Block type="logic_operation" />
+          <Block type="logic_negate" />
+          <Block type="text_print">
+            <Value name="TEXT">
+              <Shadow type="text">
+                <Field name="TEXT">abc</Field>
+              </Shadow>
+            </Value>
+          </Block>
+          <Block type="logic_boolean" />
+          <Block type="logic_null" disabled="false" />
+          <Block type="logic_ternary" />
+          <Block type="text_charAt">
+            <Value name="VALUE">
+              <Block type="variables_get">
+                <Field name="VAR">text</Field>
+              </Block>
+            </Value>
+          </Block>
+        </BlocklyComponent>
+
       </div>
     );
   }
-
-  // generateCode = () => {
-  //   // 무한루프 방지 설정
-  //   window.LoopTrap = 1000;
-  //   Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0) throw "Infinite loop.";';
-  //   const code = Blockly.JavaScript.workspaceToCode(workspace);
-  //   // 무한루프 방지 해제
-  //   Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-  //   return code;
-  // };
-
-  // runWorkspace = async () => {
-  //   const code = generateCode();
-  //   console.log(code);
-  //   try {
-  //     console.log('Now running...');
-  //     await eval(code);
-  //     console.log('Done.');
-  //   } catch (e) {
-  //     alert(e);
-  //   }
-  // };
 }
 
 export default App;
