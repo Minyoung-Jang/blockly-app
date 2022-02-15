@@ -67,7 +67,8 @@ class App extends React.Component {
               </xml>
             `}>
           <Category name="시작" colour="#DB6464">
-            <Block type="start_block" />
+            <Block type="start_block" 
+            />
           </Category>
           <Category name="흐름" colour="#6137D6">
             <Block type="wait_block" />
