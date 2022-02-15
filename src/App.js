@@ -45,8 +45,9 @@ class App extends React.Component {
     var code = BlocklyJS.workspaceToCode(
       this.simpleWorkspace.current.workspace
     );
-    console.log(code);
-    eval(code);
+    console.log(code.split("\n\n")[0]);
+    const list = code.split("\n\n");
+    eval(list[0]);
   }
 
   render() {
@@ -65,39 +66,61 @@ class App extends React.Component {
               <xml xmlns="http://www.w3.org/1999/xhtml">
               </xml>
             `}>
-          <Category name="LOOP" colour="200">
-            <Block type="controls_repeat_ext" />
-            <Block type="test_react_date_field" />
-            <Block type="controls_ifelse" />
-            <Block type="logic_compare" />
-            <Block type="logic_operation" />
-            <Block type="controls_repeat_ext">
+          <Category name="시작" colour="#DB6464">
+            <Block type="start_block" />
+          </Category>
+          <Category name="흐름" colour="#6137D6">
+            <Block type="wait_block" />
+            <Block type="controls_repeat_ext" colourPrimary="#6137D6">
               <Value name="TIMES">
                 <Shadow type="math_number">
                   <Field name="NUM">10</Field>
                 </Shadow>
               </Value>
             </Block>
-            <Block type="logic_operation" />
-            <Block type="logic_negate" />
-            <Block type="text_print">
-              <Value name="TEXT">
-                <Shadow type="text">
-                  <Field name="TEXT">abc</Field>
-                </Shadow>
-              </Value>
-            </Block>
-            <Block type="test_react_field" />
-            <Block type="logic_null" disabled="false" />
-            <Block type="logic_ternary" />
-            <Block type="text_charAt">
-              <Value name="VALUE">
-                <Block type="variables_get">
-                  <Field name="VAR">text</Field>
-                </Block>
-              </Value>
-            </Block>
           </Category>
+          <Category name="자료" colour="300"></Category>
+          <Category name="연산" colour="400"></Category>
+          <Category name="변수" colour="330" custom="VARIABLE"></Category>
+          <Category name="스마트홈" colour="500"></Category>
+          <Block type="text_print">
+            <Value name="TEXT">
+              <Shadow type="text">
+                <Field name="TEXT">abc</Field>
+              </Shadow>
+            </Value>
+          </Block>
+          <Block type="logic_operation" />
+          <Block type="controls_repeat_ext">
+            <Value name="TIMES">
+              <Shadow type="math_number">
+                <Field name="NUM">10</Field>
+              </Shadow>
+            </Value>
+          </Block>
+          <Block type="controls_ifelse" />
+          <Block type="logic_compare" />
+          <Block type="logic_operation" />
+
+          <Block type="logic_operation" />
+          <Block type="logic_negate" />
+          <Block type="text_print">
+            <Value name="TEXT">
+              <Shadow type="text">
+                <Field name="TEXT">abc</Field>
+              </Shadow>
+            </Value>
+          </Block>
+          <Block type="test_react_field" />
+          <Block type="logic_null" disabled="false" />
+          <Block type="logic_ternary" />
+          <Block type="text_charAt">
+            <Value name="VALUE">
+              <Block type="variables_get">
+                <Field name="VAR">text</Field>
+              </Block>
+            </Value>
+          </Block>
         </BlocklyComponent>
 
       </div>

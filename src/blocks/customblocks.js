@@ -32,66 +32,59 @@ import BlocklyJS from 'blockly/javascript';
 import '../fields/BlocklyReactField';
 import '../fields/DateField';
 
-var testReactField = {
-  "type": "test_react_field",
-  "message0": "커스텀 필드 %1 %2",
-  "args0": [
-    {
-      "type": "field_react_component",
-      "name": "Name",
-      "text": "Name"
-    },
-    {
-      "type": "field_react_component",
-      "name": "FIELD",
-      "text": "HELLO"
-    },
-  ],
-  
-  "previousStatement": null,
-  "nextStatement": null,
+var startBlock = {
+  "type": "start_block",
+  "message0": "▶ 시작",
+  "nextStatement": true,
 };
 
-Blockly.JavaScript['test_react_field'] = function (block) {
-  // var text_name = block.getFieldValue('Name');
-  var text_name = block.args0;
+Blockly.JavaScript['start_block'] = function (block) {
   console.log(block);
-  var code = 'alert("' + text_name +'");\n';
+  var code = '//Start\n';
   return code;
 };
 
-Blockly.Blocks['test_react_field'] = {
-  init: function() {
-    this.jsonInit(testReactField);
-    this.setStyle('loop_blocks');
+Blockly.Blocks['start_block'] = {
+  init: function () {
+    this.jsonInit(startBlock);
+    this.setColour("#DB6464");
     this.toLocaleString('ko');
   }
 };
 
-var reactDateField = {
-  "type": "test_react_date_field",
-  "message0": "date field %1",
+var waitBlock = {
+  "type": "wait_block",
+  "message0": "%1초 기다리고 %2 실행 %3",
   "args0": [
     {
-      "type": "field_react_date",
-      "name": "DATE",
-      "date": "01/01/2020"
+      "type": "field_number",
+      "name": "duration",
+      "value": 3,
+    },
+    {
+      "type":"input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "NAME"
     },
   ],
-  "previousStatement": null,
   "nextStatement": null,
+  "previousStatement": null,
 };
 
-Blockly.Blocks['test_react_date_field'] = function (block) {
-
-  // TODO: Assemble Python into code variable.
-  var code = 'console.log(' + block.args0[0]["date"] +');\n';
+Blockly.JavaScript['wait_block'] = function (block) {
+  var second = block.getFieldValue("duration");
+  var statement = block.getInputTargetBlock('NAME');
+  var blockCode = Blockly.JavaScript.blockToCode(statement);
+  var code = `setTimeout(function(){ ${blockCode} }, ${second}000);\n`;
   return code;
 };
 
-Blockly.Blocks['test_react_date_field'] = {
-  init: function() {
-    this.jsonInit(reactDateField);
-    this.setStyle('loop_blocks');
+Blockly.Blocks['wait_block'] = {
+  init: function () {
+    this.jsonInit(waitBlock);
+    this.setColour("#6137D6");
+    this.toLocaleString('ko');
   }
 };
