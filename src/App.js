@@ -21,6 +21,7 @@ class App extends React.Component {
     );
 
     for (var code of codeList.split("\n\n")) {
+      console.log(code);
       if (code.includes("//Start\n")) {
         eval(code);
       }
@@ -69,48 +70,50 @@ class App extends React.Component {
                 </Shadow>
               </Value>
             </Block>
+            <Block type="infinite_loop" />
           </Category>
           <Category name="자료" colour="300">
-            <Block type="text_print">
-              <Value name="TEXT">
-                <Shadow type="text">
-                  <Field name="TEXT">abc</Field>
-                </Shadow>
-              </Value>
-            </Block>
-            <Block type="variables_get" />
-            <Block type="controls_repeat_ext">
-              <Value name="TIMES">
-                <Shadow type="math_number">
-                  <Field name="NUM">10</Field>
-                </Shadow>
-              </Value>
-            </Block>
-            <Block type="controls_ifelse" />
-            <Block type="logic_compare" />
-            <Block type="logic_operation" />
-            <Block type="logic_operation" />
-            <Block type="logic_negate" />
-            <Block type="text_print">
-              <Value name="TEXT">
-                <Shadow type="text">
-                  <Field name="TEXT">abc</Field>
-                </Shadow>
-              </Value>
-            </Block>
-            <Block type="logic_null" disabled="false" />
-            <Block type="logic_ternary" />
-            <Block type="text_charAt">
-              <Value name="VALUE">
-                <Block type="variables_get">
-                  <Field name="VAR">text</Field>
-                </Block>
-              </Value>
-            </Block>
+
           </Category>
           <Category name="연산" colour="400"></Category>
           <Category name="변수" colour="330" custom="VARIABLE"></Category>
           <Category name="스마트홈" colour="500"></Category>
+          {/* <Block type="text_print">
+            <Value name="TEXT">
+              <Shadow type="text">
+                <Field name="TEXT">abc</Field>
+              </Shadow>
+            </Value>
+          </Block>
+          <Block type="variables_get" />
+          <Block type="controls_repeat_ext">
+            <Value name="TIMES">
+              <Shadow type="math_number">
+                <Field name="NUM">10</Field>
+              </Shadow>
+            </Value>
+          </Block>
+          <Block type="controls_ifelse" />
+          <Block type="logic_compare" />
+          <Block type="logic_operation" />
+          <Block type="logic_operation" />
+          <Block type="logic_negate" />
+          <Block type="text_print">
+            <Value name="TEXT">
+              <Shadow type="text">
+                <Field name="TEXT">abc</Field>
+              </Shadow>
+            </Value>
+          </Block>
+          <Block type="logic_null" disabled="false" />
+          <Block type="logic_ternary" />
+          <Block type="text_charAt">
+            <Value name="VALUE">
+              <Block type="variables_get">
+                <Field name="VAR">text</Field>
+              </Block>
+            </Value>
+          </Block> */}
 
         </BlocklyComponent>
 

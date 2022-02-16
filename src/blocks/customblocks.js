@@ -7,11 +7,11 @@ let isAble = false;
 
 var startBlock = {
   "type": "start_block",
-  "message0": "▶ 시작",
+  "message0": "▶︎ 시작",
   "nextStatement": true,
 };
 
-Blockly.JavaScript['start_block'] = function (block) {
+Blockly.JavaScript['start_block'] = function () {
   var code = '//Start\n';
   return code;
 };
@@ -40,7 +40,7 @@ var waitBlock = {
     {
       "type": "field_number",
       "name": "duration",
-      "value": 3,
+      "value": 1,
     },
   ],
   "nextStatement": null,
@@ -70,4 +70,40 @@ Blockly.Blocks['wait_block'] = {
       console.log(event);
     }
   }
+};
+
+
+var infiniteLoopBlock = {
+  "type": "infinite_loop",
+  "message0": "계속 반복하기 %1 %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "INFINITE"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "tooltip": "무한 루프 블럭",
+};
+
+Blockly.JavaScript['infinite_loop'] = function (block) {
+  var statement = block.getInputTargetBlock('INFINITE');
+  var blockCode = Blockly.JavaScript.blockToCode(statement);
+  var code =
+    `while(true){
+      ${blockCode}
+    }\n`;
+  return code;
+};
+
+Blockly.Blocks['infinite_loop'] = {
+  init: function () {
+    this.jsonInit(infiniteLoopBlock);
+    this.setColour("#6137D6");
+    this.toLocaleString('ko');
+  },
 };
