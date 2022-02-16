@@ -4,3 +4,18 @@
   position: absolute;
   bottom: 0;
 }
+
+.blocklyTreeLabel {
+  color: black;
+}
+
+.blocklyToolboxContents {
+  padding: .5em;
+}
+
+.blocklyTreeRow {
+  padding: 2px;
+  margin-bottom: .5em;
+  border-radius: 5px;
+  background-color: white;
+}
