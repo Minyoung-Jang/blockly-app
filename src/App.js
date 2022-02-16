@@ -6,6 +6,7 @@ import BlocklyComponent, { Block, Value, Field, Shadow, Category } from './Block
 import BlocklyJS from 'blockly/javascript';
 import './blocks/customblocks';
 import './generator/generator';
+import './widgets/dialog.js'
 
 
 class App extends React.Component {

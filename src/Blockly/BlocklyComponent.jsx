@@ -16,6 +16,7 @@ class BlocklyComponent extends React.Component {
 
     componentDidMount() {
         const { initialXml, children, ...rest } = this.props;
+        
         this.primaryWorkspace = Blockly.inject(
             this.blocklyDiv.current,
             {
