@@ -29,9 +29,9 @@ class BlocklyComponent extends React.Component {
                             "colourTertiary": "#CDB6E9"
                         },
                         "logic_blocks": {
-                            "colourPrimary": "#01579b",
-                            "colourSecondary": "#64C7FF",
-                            "colourTertiary": "#C5EAFF"
+                            "colourPrimary": "#6137D6",
+                            "colourSecondary": "#AD7BE9",
+                            "colourTertiary": "#CDB6E9"
                         },
                         "text_blocks": {
                             "colourPrimary": "#9B012F",

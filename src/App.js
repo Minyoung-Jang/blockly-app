@@ -71,12 +71,55 @@ class App extends React.Component {
               </Value>
             </Block>
             <Block type="infinite_loop" />
+            <Block type="break_loop" />
+            <Block type="controls_if"></Block>
           </Category>
-          <Category name="자료" colour="300">
-
+          <Category name="자료" colour="330" custom="VARIABLE"></Category>
+          <Category name="연산" colour="400">
+            <Block type="math_arithmetic">
+              <Value name="A">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+              <Value name="B">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
+            <Block type="logic_compare">
+              <Value name="A">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+              <Value name="B">
+                <Shadow type="math_number">
+                  <Field name="NUM">1</Field>
+                </Shadow>
+              </Value>
+            </Block>
+            <Block type="logic_operation">
+              <Value name="A">
+                <Shadow type="logic_boolean">
+                  <Field name="BOOL">참</Field>
+                </Shadow>
+              </Value>
+              <Value name="B">
+                <Shadow type="logic_boolean">
+                  <Field name="BOOL">거짓</Field>
+                </Shadow>
+              </Value>
+            </Block>
+            <Block type="text_print">
+              <Value name="TEXT">
+                <Shadow type="text">
+                  <Field name="TEXT">abc</Field>
+                </Shadow>
+              </Value>
+            </Block>
           </Category>
-          <Category name="연산" colour="400"></Category>
-          <Category name="변수" colour="330" custom="VARIABLE"></Category>
           <Category name="스마트홈" colour="500"></Category>
           {/* <Block type="text_print">
             <Value name="TEXT">
