@@ -43,11 +43,22 @@ class BlocklyComponent extends React.Component {
                             "colourSecondary": "#FF6498",
                             "colourTertiary": "#FFC5D6"
                         },
+                        "logic_operation": {
+                            "colourPrimary": "#9B012F",
+                            "colourSecondary": "#FF6498",
+                            "colourTertiary": "#FFC5D6"
+                        },
 
                     },
                     'componentStyles': {
-                        // 'workspaceBackgroundColour': '#41C75E',
-                        // 'toolboxBackgroundColour': '#C80000'
+                        'workspaceBackgroundColour': '#F2F2F2',
+                        'toolboxBackgroundColour': '#4C536D',
+                        'flyoutBackgroundColour' : '#4C536D99'
+                    },
+                    'categoryStyles' : {
+                        "start": {
+                            "colour": "#DB6464"
+                         }
                     }
                 },
 
