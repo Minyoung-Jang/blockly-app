@@ -1,21 +1,22 @@
 #blocklyDiv {
-  height: 90%;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+    height: 95%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 .blocklyTreeLabel {
-  color: black;
+    color: black;
 }
 
 .blocklyToolboxContents {
-  padding: .5em;
+    padding: .8em;
 }
 
 .blocklyTreeRow {
-  padding: 2px;
-  margin-bottom: .5em;
-  border-radius: 5px;
-  background-color: white;
+    width: 80px;
+    padding: 8px;
+    margin-bottom: .5em;
+    border-radius: 5px;
+    background-color: white;
 }

@@ -34,7 +34,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.generateCode}> 바꾸기 </button>
+        <button id="codeButton" onClick={this.generateCode}> 코드 실행 </button>
         <BlocklyComponent
           readOnly={false} trashcan={true} media={'media/'}
           ref={this.simpleWorkspace}
@@ -58,7 +58,7 @@ class App extends React.Component {
               <xml xmlns="http://www.w3.org/1999/xhtml">
               </xml>
             `}>
-          <Category name="시작" colour="#DB6464">
+          <Category name="시작" categorystyle="start">
             <Block type="start_block" />
           </Category>
           <Category name="흐름" colour="#6137D6">
@@ -100,7 +100,7 @@ class App extends React.Component {
                 </Shadow>
               </Value>
             </Block>
-            <Block type="logic_operation">
+            <Block type="logic_operation" colour="400">
               <Value name="A">
                 <Shadow type="logic_boolean">
                   <Field name="BOOL">참</Field>
@@ -120,7 +120,7 @@ class App extends React.Component {
               </Value>
             </Block>
           </Category>
-          <Category name="스마트홈" colour="500"></Category>
+          <Category name="스마트홈" colour="200"></Category>
           {/* <Block type="text_print">
             <Value name="TEXT">
               <Shadow type="text">

@@ -1,11 +1,10 @@
-
 import Blockly from 'blockly/core';
 import 'blockly/blocks';
 
-class CustomDialog { };
+class CustomDialog {};
 
 /** Override Blockly.alert() with custom implementation. */
-Blockly.alert = function (message, callback) {
+Blockly.alert = function(message, callback) {
     console.log('Alert: ' + message);
     CustomDialog.show('Alert', message, {
         onCancel: callback
@@ -13,31 +12,31 @@ Blockly.alert = function (message, callback) {
 };
 
 /** Override Blockly.confirm() with custom implementation. */
-Blockly.confirm = function (message, callback) {
+Blockly.confirm = function(message, callback) {
     console.log('Confirm: ' + message);
     CustomDialog.show('Confirm', message, {
         showOkay: true,
-        onOkay: function () {
+        onOkay: function() {
             callback(true);
         },
         showCancel: true,
-        onCancel: function () {
+        onCancel: function() {
             callback(false);
         }
     });
 };
 
 /** Override Blockly.prompt() with custom implementation. */
-Blockly.prompt = function (message, defaultValue, callback) {
+Blockly.prompt = function(message, defaultValue, callback) {
     console.log('Prompt: ' + message);
     CustomDialog.show('변수 만들기', message, {
         showInput: true,
         showOkay: true,
-        onOkay: function () {
+        onOkay: function() {
             callback(CustomDialog.inputField.value);
         },
         showCancel: true,
-        onCancel: function () {
+        onCancel: function() {
             callback(null);
         }
     });
@@ -45,7 +44,7 @@ Blockly.prompt = function (message, defaultValue, callback) {
 };
 
 /** Hides any currently visible dialog. */
-CustomDialog.hide = function () {
+CustomDialog.hide = function() {
     if (CustomDialog.backdropDiv_) {
         CustomDialog.backdropDiv_.style.display = 'none';
         CustomDialog.dialogDiv_.style.display = 'none';
@@ -61,7 +60,7 @@ CustomDialog.hide = function () {
  *  - onOkay: Callback to handle the okay button.
  *  - onCancel: Callback to handle the cancel button and backdrop clicks.
  */
-CustomDialog.show = function (title, message, options) {
+CustomDialog.show = function(title, message, options) {
     var backdropDiv = CustomDialog.backdropDiv_;
     var dialogDiv = CustomDialog.dialogDiv_;
     if (!dialogDiv) {
@@ -83,6 +82,7 @@ CustomDialog.show = function (title, message, options) {
             'max-width: 361px;' +
             'justify-content: center;' +
             'border-radius: 10px;' +
+            'align-items: center;' +
             'padding-top: 10px;' +
             'padding-bottom: 10px;' +
             'padding-right: 26px;' +
@@ -93,7 +93,7 @@ CustomDialog.show = function (title, message, options) {
             'margin-top: 80px;';
         backdropDiv.appendChild(dialogDiv);
 
-        dialogDiv.onclick = function (event) {
+        dialogDiv.onclick = function(event) {
             event.stopPropagation();
         };
 
@@ -113,8 +113,8 @@ CustomDialog.show = function (title, message, options) {
         'font-weight: bold;' +
         'border-bottom: solid #000;' +
         'border-bottom-width: 0.5;' +
-        'font-family: Noto Sans KR, sans-serif;'
-        + '">변수만들기</div>' +
+        'font-family: Noto Sans KR, sans-serif;' +
+        '">변수만들기</div>' +
         '<div class="customDialogMessage" style="' +
         'margin-top: 10px;' +
         'color: rgba(73, 73, 73, 1);' +
@@ -131,6 +131,7 @@ CustomDialog.show = function (title, message, options) {
             'border-radius: 5px;' +
             'border-color: rgba(211, 211, 211, 1);' +
             'border-width: 1px;' +
+            'align-items: center;' +
             'border-style: solid;' +
             'background-color: rgba(255, 255, 255, 1);' +
             '"></div>' : '') +
@@ -141,7 +142,7 @@ CustomDialog.show = function (title, message, options) {
             'justify-content: center;' +
             'margin-top: 10px;' +
             'border-radius: 17.5px;' +
-            'text-align: center;' +
+            'align-items: center;' +
             'padding-top: 7px;' +
             'padding-bottom: 7px;' +
             'padding-right: 30px;' +
@@ -169,12 +170,12 @@ CustomDialog.show = function (title, message, options) {
             '">취소</button>' : '') +
         '</div>';
 
-    var onOkay = function (event) {
+    var onOkay = function(event) {
         CustomDialog.hide();
         options.onOkay && options.onOkay();
         event && event.stopPropagation();
     };
-    var onCancel = function (event) {
+    var onCancel = function(event) {
         CustomDialog.hide();
         options.onCancel && options.onCancel();
         event && event.stopPropagation();
@@ -185,7 +186,7 @@ CustomDialog.show = function (title, message, options) {
     if (dialogInput) {
         dialogInput.focus();
 
-        dialogInput.onkeyup = function (event) {
+        dialogInput.onkeyup = function(event) {
             if (event.keyCode === 13) {
                 // Process as OK when user hits enter.
                 onOkay();
