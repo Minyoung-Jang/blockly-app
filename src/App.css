@@ -24,7 +24,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px 24px 10px 20px;
-    margin-top: 22px;
+    margin-top: 20px;
     margin-right: 24px;
     width: 104px;
     height: 39px;
@@ -37,8 +37,8 @@
 }
 
 #box {
-    width: 122px;
-    height: 100vw;
+    width: 184px;
+    height: 50vw;
     float: left;
     background: #4C536D;
 }
