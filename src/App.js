@@ -49,16 +49,6 @@ class App extends React.Component {
             wheel: true,
           }}
           renderer={'zelos'}
-          zoom=
-          {{
-            controls: true,
-            wheel: true,
-            startScale: 1.0,
-            maxScale: 3,
-            minScale: 0.3,
-            scaleSpeed: 1.2,
-            pinch: true
-          }}
           initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
               </xml>

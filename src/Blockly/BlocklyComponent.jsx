@@ -52,7 +52,7 @@ class BlocklyComponent extends React.Component {
 
                     },
                     'componentStyles': {
-                        'workspaceBackgroundColour': '#FFFFFF00',
+                        'workspaceBackgroundColour': '#F7F7FB',
                         'toolboxBackgroundColour': '#4C536D',
                         'flyoutBackgroundColour': '#4C536D99'
                     },
