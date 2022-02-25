@@ -34,7 +34,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <button id="codeButton" onClick={this.generateCode}> 코드 실행 </button>
+        <button id="codeButton" onClick={this.generateCode}> RUN </button>
         <BlocklyComponent
           readOnly={false} trashcan={true} media={'media/'}
           ref={this.simpleWorkspace}
