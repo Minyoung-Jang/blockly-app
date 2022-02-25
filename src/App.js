@@ -16,6 +16,7 @@ class App extends React.Component {
   }
 
   generateCode = () => {
+    console.log(this.simpleWorkspace);
     var codeList = BlocklyJS.workspaceToCode(
       this.simpleWorkspace.current.workspace
     );
@@ -33,12 +34,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" style={{
-        backgroundColor: 'transparent',
-        width: '100%',
-        height: '100vh',
-      }}>
-        <button id="codeButton" onClick={this.generateCode}> START </button>
+      <div className="App" style={{}}>
+        <div id="box"></div>
+        <div id="box1">
+
+          <button id="codeButton" onClick={this.generateCode}> START </button>
+        </div>
         <BlocklyComponent
           readOnly={false} trashcan={true} media={'media/'}
           ref={this.simpleWorkspace}

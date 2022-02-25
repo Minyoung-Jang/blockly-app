@@ -3,6 +3,7 @@ import './BlocklyComponent.css';
 
 import Blockly from 'blockly/core';
 import locale from 'blockly/msg/ko';
+import BlocklyJS from 'blockly/javascript';
 import 'blockly/blocks';
 
 Blockly.setLocale(locale);
@@ -16,7 +17,7 @@ class BlocklyComponent extends React.Component {
 
     componentDidMount() {
         const { initialXml, children, ...rest } = this.props;
-        
+
         this.primaryWorkspace = Blockly.inject(
             this.blocklyDiv.current,
             {
@@ -53,12 +54,12 @@ class BlocklyComponent extends React.Component {
                     'componentStyles': {
                         'workspaceBackgroundColour': '#FFFFFF00',
                         'toolboxBackgroundColour': '#4C536D',
-                        'flyoutBackgroundColour' : '#4C536D99'
+                        'flyoutBackgroundColour': '#4C536D99'
                     },
-                    'categoryStyles' : {
+                    'categoryStyles': {
                         "start": {
                             "colour": "#DB6464"
-                         }
+                        }
                     }
                 },
 
@@ -66,9 +67,18 @@ class BlocklyComponent extends React.Component {
             },
         );
 
+
         if (initialXml) {
             Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialXml), this.primaryWorkspace);
         }
+
+        
+        var code = BlocklyJS.workspaceToCode(this.primaryWorkspace);
+        
+        function myUpdateFunction(event) {
+            console.log(code);
+        }
+        this.primaryWorkspace.addChangeListener(myUpdateFunction);
     }
 
     get workspace() {
