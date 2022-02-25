@@ -33,8 +33,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <button id="codeButton" onClick={this.generateCode}> 코드 실행 </button>
+      <div className="App" style={{
+        backgroundColor: 'transparent',
+        width: '100%',
+        height: '100vh',
+      }}>
+        <button id="codeButton" onClick={this.generateCode}> START </button>
         <BlocklyComponent
           readOnly={false} trashcan={true} media={'media/'}
           ref={this.simpleWorkspace}
