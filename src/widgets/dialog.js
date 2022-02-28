@@ -84,9 +84,9 @@ CustomDialog.show = function(title, message, options) {
             'border-radius: 10px;' +
             'align-items: center;' +
             'padding-top: 10px;' +
-            'padding-bottom: 10px;' +
-            'padding-right: 26px;' +
-            'padding-left: 26px;' +
+            // 'padding-bottom: 10px;' +
+            'padding-right: 30px;' +
+            'padding-left: 30px;' +
             'background-color: rgba(247, 247, 251, 1);' +
             'margin-right: auto;' +
             'margin-left: auto;' +
@@ -104,45 +104,46 @@ CustomDialog.show = function(title, message, options) {
     dialogDiv.style.display = 'block';
 
     dialogDiv.innerHTML =
+        '<div style="display : flex; flex-direction: column;">' +
         '<div class="customDialogTitle" style="' +
         'color: rgba(99, 125, 220, 1);' +
-        'font-size: 16px;' +
+        'font-size: 14px;' +
         'letter-spacing: 0%;' +
         'padding: 14px;' +
         'text-align: center;' +
         'font-weight: bold;' +
-        'border-bottom: solid #000;' +
-        'border-bottom-width: 0.5;' +
+        'border-bottom: 1px solid #D8D8D8;' +
         'font-family: Noto Sans KR, sans-serif;' +
         '">변수만들기</div>' +
         '<div class="customDialogMessage" style="' +
         'margin-top: 10px;' +
         'color: rgba(73, 73, 73, 1);' +
-        'font-size: 16px;' +
+        'font-size: 10px;' +
+        'font-weight: bold;' +
         'letter-spacing: 0%;' +
         'text-align: left;' +
+        'margin-top: 16px;' +
         'font-family: Noto Sans KR, sans-serif;' +
         '">새 변수 이름 :</div>' +
-        (options.showInput ? '<div><input id="customDialogInput" style="' +
-            'display: flex;' +
+        (options.showInput ? '<input id="customDialogInput" style="' +
             'height: 30px;' +
-            'width: 309px;' +
+            'width: 100%;' +
             'margin-top: 10px;' +
             'border-radius: 5px;' +
             'border-color: rgba(211, 211, 211, 1);' +
             'border-width: 1px;' +
-            'align-items: center;' +
+            'align-self: center;' +
             'border-style: solid;' +
             'background-color: rgba(255, 255, 255, 1);' +
-            '"></div>' : '') +
-        '<div class="customDialogButtons">' +
+            '">' : '') +
+        // '<div class="customDialogButtons">' +
         (options.showOkay ? '<button id="okay" style="' +
             ' display: flex;' +
             'flex-direction: row;' +
             'justify-content: center;' +
-            'margin-top: 10px;' +
+            'margin-top: 20px;' +
             'border-radius: 17.5px;' +
-            'align-items: center;' +
+            'align-self: center;' +
             'padding-top: 7px;' +
             'padding-bottom: 7px;' +
             'padding-right: 30px;' +
@@ -153,8 +154,6 @@ CustomDialog.show = function(title, message, options) {
             'font-size: 12px;' +
             'border: none;' +
             'letter-spacing: 0%;' +
-            'text-align: center;' +
-            'text-align: center;' +
             'font-family: Noto Sans KR, sans-serif;' +
             '">생성하기</button>' : '') +
         (options.showCancel ? '<button id="cancel" style="' +
