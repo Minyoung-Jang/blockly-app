@@ -1,29 +1,22 @@
 import * as Blockly from 'blockly/core';
 
-
 var breakBlock = {
     "type": "break_loop",
-    "message0": "계속 반복하기 %1 %2",
-    "args0": [
-      {
-        "type": "input_dummy"
-      },
-    ],
+    "message0": "반복 중단하기",
     "previousStatement": null,
-    "nextStatement": null,
     "tooltip": "루프 나오기",
-  };
-  
-  Blockly.JavaScript['break_loop'] = function (block) {
+};
+
+Blockly.JavaScript['break_loop'] = function(block) {
     var code =
-      `break;\n`;
+        `break;\n`;
     return code;
-  };
-  
-  Blockly.Blocks['break_loop'] = {
-    init: function () {
-      this.jsonInit(breakBlock);
-      this.setColour("#6137D6");
-      this.toLocaleString('ko');
+};
+
+Blockly.Blocks['break_loop'] = {
+    init: function() {
+        this.jsonInit(breakBlock);
+        this.setColour("#A43033");
+        this.toLocaleString('ko');
     },
-  };
+};

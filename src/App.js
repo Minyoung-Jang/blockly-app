@@ -34,10 +34,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" style={{}}>
-        <div id="box"></div>
+      <div className="App" style={{ display: 'flex' }}>
+        <div id="box">
+        </div>
         <div id="box1">
-
+          <div id="column">
+            <div id="subtitle">PROJECT NAME</div>
+            <div id="title">인공지능 홈</div>
+          </div>
           <button id="codeButton" onClick={this.generateCode}> START </button>
         </div>
         <BlocklyComponent
@@ -49,24 +53,14 @@ class App extends React.Component {
             wheel: true,
           }}
           renderer={'zelos'}
-          zoom=
-          {{
-            controls: true,
-            wheel: true,
-            startScale: 1.0,
-            maxScale: 3,
-            minScale: 0.3,
-            scaleSpeed: 1.2,
-            pinch: true
-          }}
           initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
               </xml>
             `}>
-          <Category name="시작" categorystyle="start">
+          <Category name="시작" colour="#5AA8DF">
             <Block type="start_block" />
           </Category>
-          <Category name="흐름" colour="#6137D6">
+          <Category name="흐름" colour="#A43033">
             <Block type="wait_block" />
             <Block type="controls_repeat_ext">
               <Value name="TIMES">
@@ -77,10 +71,10 @@ class App extends React.Component {
             </Block>
             <Block type="infinite_loop" />
             <Block type="break_loop" />
-            <Block type="controls_if"></Block>
+            <Block type="controls_if" />
           </Category>
-          <Category name="자료" colour="330" custom="VARIABLE"></Category>
-          <Category name="연산" colour="400">
+          <Category name="자료" colour="#E99F38" custom="VARIABLE"></Category>
+          <Category name="연산" colour="#7AB964">
             <Block type="math_arithmetic">
               <Value name="A">
                 <Shadow type="math_number">
@@ -93,7 +87,7 @@ class App extends React.Component {
                 </Shadow>
               </Value>
             </Block>
-            <Block type="logic_compare">
+            <Block type="compare_block">
               <Value name="A">
                 <Shadow type="math_number">
                   <Field name="NUM">1</Field>
@@ -105,27 +99,27 @@ class App extends React.Component {
                 </Shadow>
               </Value>
             </Block>
-            <Block type="logic_operation" colour="400">
-              <Value name="A">
-                <Shadow type="logic_boolean">
-                  <Field name="BOOL">참</Field>
-                </Shadow>
+            <Block type="and_or_block" >
+            <Value name="A">
+                <Block type="boolean_block">
+                  <Field name="BOOL">TRUE</Field>
+                </Block>
               </Value>
               <Value name="B">
-                <Shadow type="logic_boolean">
-                  <Field name="BOOL">거짓</Field>
-                </Shadow>
+                <Block type="boolean_block">
+                  <Field name="BOOL">TRUE</Field>
+                </Block>
               </Value>
             </Block>
-            <Block type="text_print">
-              <Value name="TEXT">
-                <Shadow type="text">
-                  <Field name="TEXT">abc</Field>
-                </Shadow>
+            <Block type="not_block">
+              <Value name="BOOL">
+                <Block type="boolean_block">
+                  <Field name="BOOL">TRUE</Field>
+                </Block>
               </Value>
             </Block>
           </Category>
-          <Category name="스마트홈" colour="200"></Category>
+          <Category name="스마트홈" colour="#AE76F5"></Category>
           {/* <Block type="text_print">
             <Value name="TEXT">
               <Shadow type="text">
