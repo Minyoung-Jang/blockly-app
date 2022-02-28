@@ -25,42 +25,31 @@ class BlocklyComponent extends React.Component {
                 theme: {
                     'blockStyles': {
                         "loop_blocks": {
-                            "colourPrimary": "#6137D6",
-                            "colourSecondary": "#AD7BE9",
-                            "colourTertiary": "#CDB6E9"
+                            "colourPrimary": "#A43033",
+                            "colourSecondary": "#FEAFB1",
                         },
                         "logic_blocks": {
-                            "colourPrimary": "#6137D6",
-                            "colourSecondary": "#AD7BE9",
-                            "colourTertiary": "#CDB6E9"
+                            "colourPrimary": "#A43033",
+                            "colourSecondary": "#FEAFB1",
                         },
                         "text_blocks": {
-                            "colourPrimary": "#9B012F",
-                            "colourSecondary": "#FF6498",
-                            "colourTertiary": "#FFC5D6"
+                            "colourPrimary": "#7AB964",
+                            "colourSecondary": "#BEDAB4",
+                        },
+                        "math_blocks": {
+                            "colourPrimary": "#7AB964",
+                            "colourSecondary": "#BEDAB4",
                         },
                         "variable_blocks": {
-                            "colourPrimary": "#9B012F",
-                            "colourSecondary": "#FF6498",
-                            "colourTertiary": "#FFC5D6"
+                            "colourPrimary": "#E99F38",
+                            "colourSecondary": "#EFC78F",
                         },
-                        "logic_operation": {
-                            "colourPrimary": "#9B012F",
-                            "colourSecondary": "#FF6498",
-                            "colourTertiary": "#FFC5D6"
-                        },
-
                     },
                     'componentStyles': {
                         'workspaceBackgroundColour': '#F7F7FB',
                         'toolboxBackgroundColour': '#4C536D',
                         'flyoutBackgroundColour': '#4C536D99'
                     },
-                    'categoryStyles': {
-                        "start": {
-                            "colour": "#DB6464"
-                        }
-                    }
                 },
 
                 ...rest

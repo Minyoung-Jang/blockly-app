@@ -1,5 +1,5 @@
 #blocklyDiv {
-    height: 92%;
+    height: 88%;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -12,13 +12,17 @@
 }
 
 .blocklyToolboxContents {
-    padding: .8em;
+    padding: 1em 0.8em 1em .8em;
 }
 
 .blocklyTreeRow {
     width: 150px;
     padding: 8px 0px 8px 0px;
-    margin-bottom: .5em;
+    margin-bottom: 12px;
     border-radius: 5px;
     background-color: white;
+}
+
+.blocklySvg text {
+    color: black;
 }
