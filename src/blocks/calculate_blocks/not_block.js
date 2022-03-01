@@ -6,23 +6,24 @@ var notBlock = {
     "args0": [{
         "type": "input_value",
         "name": "BOOL",
-        "check": "Boolean"
     }],
+    "output": "Boolean",
     "tooltip": "",
     "helpUrl": ""
 };
 
 Blockly.JavaScript['not_block'] = function(block) {
+    var value_bool = block.getInputTargetBlock('BOOL');
+    var boolean = Blockly.JavaScript.blockToCode(value_bool);
     var code =
-        `break;\n`;
-    return code;
+        `!${boolean[0]}`;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.Blocks['not_block'] = {
     init: function() {
         this.jsonInit(notBlock);
         this.setColour("#7AB964");
-        this.setOutput(true, 'Boolean');
         this.toLocaleString('ko');
     },
 };

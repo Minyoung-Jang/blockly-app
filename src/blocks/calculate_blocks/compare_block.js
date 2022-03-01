@@ -27,6 +27,10 @@ var compareBlock = {
                 [
                     "<=",
                     "<="
+                ],
+                [
+                    "==",
+                    "==="
                 ]
             ]
         },
@@ -45,16 +49,24 @@ var compareBlock = {
 };
 
 Blockly.JavaScript['compare_block'] = function(block) {
+    var a = block.getFieldValue('A');
+    var b = block.getFieldValue('B');
+    var operator = block.getFieldValue('COMPARE');
     var code =
-        `break;\n`;
-    return code;
+        `${a} ${operator} ${b}`;
+    return [code, Blockly.JavaScript.ORDER_ADDITION];
 };
 
 Blockly.Blocks['compare_block'] = {
     init: function() {
         this.jsonInit(compareBlock);
         this.setColour("#7AB964");
-        this.setOutput(true, 'Boolean');
         this.toLocaleString('ko');
     },
 };
+
+// {"motor" : 180}
+// {"LED" : true}
+// {"LED_COLOR" : {"R" : 100, "G" : 200, ""}}
+
+// LCD,as;dlfja sldjfl;jas,sdff

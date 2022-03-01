@@ -21,7 +21,6 @@ Blockly.Blocks['start_block'] = {
         this.disabled = isAble;
     },
     onchange: function(event) {
-
         if (`${event.element}` === 'dragStop' && this.type === "start_block") {
             isAble = true;
         }
