@@ -22,14 +22,14 @@ class App extends React.Component {
 
 
     for (var code of codeList.split("\n\n")) {
-      console.log(code);
       if (code.includes("//Start\n")) {
-        eval(code);
+        try{
+          eval(code);
+        }catch(err){
+          console.log("CODE_FAIL");
+        }
       }
     }
-    // var msg = new SpeechSynthesisUtterance();
-    // msg.text = "안녕하세요";
-    // window.speechSynthesis.speak(msg);
   }
 
   render() {
