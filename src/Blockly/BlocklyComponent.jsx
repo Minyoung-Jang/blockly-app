@@ -61,13 +61,6 @@ class BlocklyComponent extends React.Component {
             Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialXml), this.primaryWorkspace);
         }
 
-        
-        var code = BlocklyJS.workspaceToCode(this.primaryWorkspace);
-        
-        function myUpdateFunction(event) {
-            console.log(code);
-        }
-        this.primaryWorkspace.addChangeListener(myUpdateFunction);
     }
 
     get workspace() {

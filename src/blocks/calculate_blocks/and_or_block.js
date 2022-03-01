@@ -14,11 +14,11 @@ var andOrBlock = {
             "options": [
                 [
                     "그리고",
-                    "AND"
+                    "&&"
                 ],
                 [
                     "또는",
-                    "OR"
+                    "||"
                 ]
             ]
         },
@@ -36,9 +36,17 @@ var andOrBlock = {
 };
 
 Blockly.JavaScript['and_or_block'] = function(block) {
+    var a = block.getInputTargetBlock('A');
+    var b = block.getInputTargetBlock('B');
+    var a_value = Blockly.JavaScript.blockToCode(a);
+    var b_value = Blockly.JavaScript.blockToCode(b);
+    var operator = block.getFieldValue('COMPARE');
+
+    console.log(`${a_value[0]} ${operator} ${b_value[0]}`);
+
     var code =
-        `break;\n`;
-    return code;
+        `${a_value[0]} ${operator} ${b_value[0]}`;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];;
 };
 
 Blockly.Blocks['and_or_block'] = {

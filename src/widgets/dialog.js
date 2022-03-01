@@ -14,16 +14,17 @@ Blockly.alert = function(message, callback) {
 /** Override Blockly.confirm() with custom implementation. */
 Blockly.confirm = function(message, callback) {
     console.log('Confirm: ' + message);
-    CustomDialog.show('Confirm', message, {
-        showOkay: true,
-        onOkay: function() {
-            callback(true);
-        },
-        showCancel: true,
-        onCancel: function() {
-            callback(false);
-        }
-    });
+    // CustomDialog.show('Confirm', message, {
+    //     showOkay: true,
+    //     onOkay: function() {
+    //         callback(true);
+    //     },
+    //     showCancel: true,
+    //     onCancel: function() {
+    //         callback(false);
+    //     }
+    // });
+    callback(true);
 };
 
 /** Override Blockly.prompt() with custom implementation. */
@@ -114,7 +115,7 @@ CustomDialog.show = function(title, message, options) {
         'font-weight: bold;' +
         'border-bottom: 1px solid #D8D8D8;' +
         'font-family: Noto Sans KR, sans-serif;' +
-        '">변수만들기</div>' +
+        `">${title}</div>` +
         '<div class="customDialogMessage" style="' +
         'margin-top: 10px;' +
         'color: rgba(73, 73, 73, 1);' +

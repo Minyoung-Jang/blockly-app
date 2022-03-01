@@ -9,31 +9,29 @@ var boolBlock = {
         "options": [
             [
                 "참",
-                "TRUE"
+                "true"
             ],
             [
                 "거짓",
-                "FALSE"
+                "false"
             ]
         ]
     }],
-    "inputsInline": false,
-    "output": null,
+    "output": 'Boolean',
     "tooltip": "",
     "helpUrl": ""
 };
 
 Blockly.JavaScript['boolean_block'] = function(block) {
-    var code =
-        `break;\n`;
-    return code;
+    var value = block.getFieldValue('BOOL');
+    var code = value;
+    return [code, Blockly.JavaScript.ORDER_ADDITION];
 };
 
 Blockly.Blocks['boolean_block'] = {
     init: function() {
         this.jsonInit(boolBlock);
         this.setColour("#7AB964");
-        this.setOutput(true, 'Boolean');
         this.toLocaleString('ko');
     },
 };
