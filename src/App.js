@@ -16,10 +16,10 @@ class App extends React.Component {
   }
 
   generateCode = () => {
-    console.log(this.simpleWorkspace);
     var codeList = BlocklyJS.workspaceToCode(
       this.simpleWorkspace.current.workspace
     );
+
 
     for (var code of codeList.split("\n\n")) {
       console.log(code);
@@ -73,7 +73,7 @@ class App extends React.Component {
             <Block type="break_loop" />
             <Block type="controls_if" />
           </Category>
-          <Category name="자료" colour="#E99F38" custom="VARIABLE"></Category>
+          <Category name="변수" colour="#E99F38" custom="VARIABLE" />
           <Category name="연산" colour="#7AB964">
             <Block type="math_arithmetic">
               <Value name="A">
@@ -100,7 +100,7 @@ class App extends React.Component {
               </Value>
             </Block>
             <Block type="and_or_block" >
-            <Value name="A">
+              <Value name="A">
                 <Block type="boolean_block">
                   <Field name="BOOL">TRUE</Field>
                 </Block>
@@ -114,49 +114,19 @@ class App extends React.Component {
             <Block type="not_block">
               <Value name="BOOL">
                 <Block type="boolean_block">
-                  <Field name="BOOL">TRUE</Field>
+                  <Field name="B">TRUE</Field>
                 </Block>
               </Value>
             </Block>
           </Category>
-          <Category name="스마트홈" colour="#AE76F5"></Category>
-          {/* <Block type="text_print">
-            <Value name="TEXT">
-              <Shadow type="text">
-                <Field name="TEXT">abc</Field>
-              </Shadow>
-            </Value>
-          </Block>
-          <Block type="variables_get" />
-          <Block type="controls_repeat_ext">
-            <Value name="TIMES">
-              <Shadow type="math_number">
-                <Field name="NUM">10</Field>
-              </Shadow>
-            </Value>
-          </Block>
-          <Block type="controls_ifelse" />
-          <Block type="logic_compare" />
-          <Block type="logic_operation" />
-          <Block type="logic_operation" />
-          <Block type="logic_negate" />
-          <Block type="text_print">
-            <Value name="TEXT">
-              <Shadow type="text">
-                <Field name="TEXT">abc</Field>
-              </Shadow>
-            </Value>
-          </Block>
-          <Block type="logic_null" disabled="false" />
-          <Block type="logic_ternary" />
-          <Block type="text_charAt">
-            <Value name="VALUE">
-              <Block type="variables_get">
-                <Field name="VAR">text</Field>
-              </Block>
-            </Value>
-          </Block> */}
-
+          <Category name="스마트홈" colour="#AE76F5">
+            <Block type="servo_motor_block" />
+            <Block type="rgb_block" />
+            <Block type="led_on_off_block" />
+            <Block type="lcd_clear_block" />
+            <Block type="lcd_set_pos_block" />
+            <Block type="lcd_message_block" />
+          </Category>
         </BlocklyComponent>
 
       </div>
