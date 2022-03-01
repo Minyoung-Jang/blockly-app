@@ -30,17 +30,33 @@ Blockly.confirm = function(message, callback) {
 /** Override Blockly.prompt() with custom implementation. */
 Blockly.prompt = function(message, defaultValue, callback) {
     console.log('Prompt: ' + message);
-    CustomDialog.show('변수 만들기', message, {
-        showInput: true,
-        showOkay: true,
-        onOkay: function() {
-            callback(CustomDialog.inputField.value);
-        },
-        showCancel: true,
-        onCancel: function() {
-            callback(null);
-        }
-    });
+    if (message === "새 변수 이름:") {
+        CustomDialog.show('변수 만들기', message, {
+            showInput: true,
+            showOkay: true,
+            showDefault: false,
+            onOkay: function() {
+                callback(CustomDialog.inputField.value);
+            },
+            showCancel: true,
+            onCancel: function() {
+                callback(null);
+            }
+        });
+    } else {
+        CustomDialog.show(message, message, {
+            showInput: true,
+            showOkay: true,
+            showDefault: true,
+            onOkay: function() {
+                callback(CustomDialog.inputField.value);
+            },
+            showCancel: true,
+            onCancel: function() {
+                callback(null);
+            }
+        });
+    }
     CustomDialog.inputField.value = defaultValue;
 };
 
@@ -156,7 +172,7 @@ CustomDialog.show = function(title, message, options) {
             'border: none;' +
             'letter-spacing: 0%;' +
             'font-family: Noto Sans KR, sans-serif;' +
-            '">생성하기</button>' : '') +
+            `">${options.showDefault ? '확인' : '생성하기'}</button>` : '') +
         (options.showCancel ? '<button id="cancel" style="' +
             'margin-top: 10px;' +
             'margin-bottom: 20px;' +
