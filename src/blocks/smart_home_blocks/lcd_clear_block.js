@@ -11,7 +11,11 @@ var lcdClearBlock = {
 
 Blockly.JavaScript['lcd_clear_block'] = function(block) {
     var code =
-        `console.log("LED_CLEAR,");\n`;
+        `console.log("LED_CLEAR,");\n` +
+        `date = Date.now();
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < 1000);\n`;
     return code;
 };
 

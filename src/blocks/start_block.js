@@ -9,7 +9,9 @@ var startBlock = {
 };
 
 Blockly.JavaScript['start_block'] = function() {
-    var code = '//Start\n';
+    var code = `//Start
+    let date = Date.now();
+    let currentDate = null;\n`;
     return code;
 };
 

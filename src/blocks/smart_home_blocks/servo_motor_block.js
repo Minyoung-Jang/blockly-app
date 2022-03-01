@@ -26,7 +26,11 @@ var servoMotorBlock = {
 Blockly.JavaScript['servo_motor_block'] = function(block) {
     var degree = block.getFieldValue('degree');
     var code =
-        `console.log("MOTOR,${degree}");\n`;
+        `console.log("MOTOR,${degree}");\n` +
+        `date = Date.now();
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < 1000);\n`;
     return code;
 };
 

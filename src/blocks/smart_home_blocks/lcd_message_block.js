@@ -17,7 +17,11 @@ var lcdMessageBlock = {
 Blockly.JavaScript['lcd_message_block'] = function(block) {
     var message = block.getFieldValue('message');
     var code =
-        `console.log("LCD_MSG,${message}");\n`;
+        `console.log("LCD_MSG,${message}");\n` +
+        `date = Date.now();
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < 1000);\n`;
     return code;
 };
 

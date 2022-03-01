@@ -16,8 +16,7 @@ Blockly.JavaScript['wait_block'] = function(block) {
     var second = block.getFieldValue("duration");
 
     var code =
-        `const date = Date.now();
-  let currentDate = null;
+        `date = Date.now();
   do {
     currentDate = Date.now();
   } while (currentDate - date < ${second}000);\n`;
