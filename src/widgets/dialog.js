@@ -44,7 +44,7 @@ Blockly.prompt = function(message, defaultValue, callback) {
             }
         });
     } else {
-        CustomDialog.show(message, message, {
+        CustomDialog.show(message.substring(0, message.length - 1), message, {
             showInput: true,
             showOkay: true,
             showDefault: true,
@@ -132,16 +132,16 @@ CustomDialog.show = function(title, message, options) {
         'border-bottom: 1px solid #D8D8D8;' +
         'font-family: Noto Sans KR, sans-serif;' +
         `">${title}</div>` +
-        '<div class="customDialogMessage" style="' +
-        'margin-top: 10px;' +
-        'color: rgba(73, 73, 73, 1);' +
-        'font-size: 10px;' +
-        'font-weight: bold;' +
-        'letter-spacing: 0%;' +
-        'text-align: left;' +
-        'margin-top: 16px;' +
-        'font-family: Noto Sans KR, sans-serif;' +
-        '">새 변수 이름 :</div>' +
+        (options.showDefault ? '' : '<div class="customDialogMessage" style="' +
+            'margin-top: 10px;' +
+            'color: rgba(73, 73, 73, 1);' +
+            'font-size: 10px;' +
+            'font-weight: bold;' +
+            'letter-spacing: 0%;' +
+            'text-align: left;' +
+            'margin-top: 16px;' +
+            'font-family: Noto Sans KR, sans-serif;' +
+            '">새 변수 이름 :</div>') +
         (options.showInput ? '<input id="customDialogInput" style="' +
             'height: 30px;' +
             'width: 100%;' +

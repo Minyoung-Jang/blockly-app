@@ -23,14 +23,14 @@
     border: none;
     padding: 10px 24px 10px 20px;
     margin-right: 32px;
-    width: 80;
-    height: 24px;
+    width: 80px;
+    height: 28px;
     background: #65A767;
     border-radius: 30px;
     align-self: center;
     color: white;
     font-weight: 900;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 0%;
 }
 
