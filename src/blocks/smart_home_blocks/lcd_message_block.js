@@ -6,7 +6,7 @@ var lcdMessageBlock = {
     "args0": [{
         "type": "field_input",
         "name": "message",
-        "text": "안녕하세요"
+        "text": "HELLO"
     }],
     "previousStatement": null,
     "nextStatement": null,
