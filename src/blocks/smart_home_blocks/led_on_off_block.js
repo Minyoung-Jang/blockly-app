@@ -26,7 +26,11 @@ var ledOnOffBlock = {
 Blockly.JavaScript['led_on_off_block'] = function(block) {
     var onOff = block.getFieldValue('onOff');
     var code =
-        `console.log("LED,${onOff}");\n`;
+        `console.log("LED,${onOff}");\n` +
+        `date = Date.now();
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < 1000);\n`;
     return code;
 };
 

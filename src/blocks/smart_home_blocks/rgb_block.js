@@ -39,7 +39,11 @@ Blockly.JavaScript['rgb_block'] = function(block) {
     var green = block.getFieldValue('green');
     var blue = block.getFieldValue('blue');
     var code =
-        `console.log("LED_COLOR,R${red}-G${green}-B${blue}");\n`;
+        `console.log("LED_COLOR,R${red}-G${green}-B${blue}");\n` +
+        `date = Date.now();
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < 1000);\n`;
     return code;
 };
 

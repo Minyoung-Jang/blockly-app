@@ -30,7 +30,11 @@ Blockly.JavaScript['lcd_set_pos_block'] = function(block) {
     var line = block.getFieldValue('line');
     var box = block.getFieldValue('box');
     var code =
-        `console.log("LCD_SET_POSITION,${box}-${line}");\n`;
+        `console.log("LCD_SET_POSITION,${box}-${line}");\n` +
+        `date = Date.now();
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < 1000);\n`;
     return code;
 };
 
