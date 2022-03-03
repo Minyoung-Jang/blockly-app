@@ -15,11 +15,11 @@ class App extends React.Component {
     this.simpleWorkspace = React.createRef();
   }
 
+
   generateCode = () => {
     var codeList = BlocklyJS.workspaceToCode(
       this.simpleWorkspace.current.workspace
     );
-
 
     for (var code of codeList.split("\n\n")) {
       if (code.includes("//Start\n")) {

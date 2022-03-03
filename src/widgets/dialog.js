@@ -227,5 +227,5 @@ CustomDialog.show = function(title, message, options) {
             .addEventListener('click', onCancel);
     }
 
-    backdropDiv.onclick = onCancel;
+    // backdropDiv.onclick = onCancel;
 };
