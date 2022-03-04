@@ -17,7 +17,7 @@ class BlocklyComponent extends React.Component {
 
     componentDidMount() {
         const { initialXml, children, ...rest } = this.props;
-
+        Blockly.ContextMenuRegistry.registry.unregister('workspaceDelete')
         this.primaryWorkspace = Blockly.inject(
             this.blocklyDiv.current,
             {
