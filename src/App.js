@@ -25,6 +25,7 @@ class App extends React.Component {
       if (code.includes("//Start\n")) {
         try{
           eval(code);
+          console.log("END");
         }catch(err){
           console.log("CODE_FAIL");
         }
