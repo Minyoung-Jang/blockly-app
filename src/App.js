@@ -30,7 +30,6 @@ class App extends React.Component {
       if (code.includes("//Start\n")) {
         evalCode = evalCode + code;
         try {
-          console.log(evalCode);
           eval(evalCode);
           console.log("END");
         } catch (err) {

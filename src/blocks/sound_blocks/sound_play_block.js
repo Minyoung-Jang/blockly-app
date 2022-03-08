@@ -4,8 +4,10 @@ var soundPlayBlock = {
     "type": "sound_play_block",
     "message0": "%1 재생하기",
     "args0": [{
-        "type": "input_value",
+        "type": "field_input",
         "name": "SOUND",
+        "text": "abc",
+        "output": "String",
     }],
     "previousStatement": null,
     "nextStatement": null,
@@ -15,8 +17,7 @@ var soundPlayBlock = {
 };
 
 Blockly.JavaScript['sound_play_block'] = function(block) {
-    var message = block.getInputTargetBlock('SOUND');
-    var text = message.getFieldValue('TEXT');
+    var text = block.getFieldValue('SOUND');
 
     var code =
         `console.log("SOUND,${text}");\n`;
