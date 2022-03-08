@@ -27,7 +27,7 @@ Blockly.JavaScript['sound_play_block'] = function(block) {
 Blockly.Blocks['sound_play_block'] = {
     init: function() {
         this.jsonInit(soundPlayBlock);
-        this.setColour("#667D8A");
+        this.setColour("#F998E3");
         this.toLocaleString('ko');
     },
 };

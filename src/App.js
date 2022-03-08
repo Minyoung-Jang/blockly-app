@@ -126,7 +126,7 @@ class App extends React.Component {
               </Value>
             </Block>
           </Category>
-          <Category name="소리" colour="#667D8A">
+          <Category name="소리" colour="#F998E3">
             <Block type="sound_play_block">
               <Value name="SOUND">
                 <Shadow type="text">
