@@ -23,17 +23,17 @@ class App extends React.Component {
     );
 
     for (var code of codeList.split("\n\n")) {
-      if(code.split(" ")[0] === "var"){
+      if (code.split(" ")[0] === "var") {
         evalCode = code;
       }
 
       if (code.includes("//Start\n")) {
         evalCode = evalCode + code;
-        try{
+        try {
           console.log(evalCode);
           eval(evalCode);
           console.log("END");
-        }catch(err){
+        } catch (err) {
           console.log("CODE_FAIL");
         }
       }
@@ -127,8 +127,17 @@ class App extends React.Component {
               </Value>
             </Block>
           </Category>
+          <Category name="소리" colour="#667D8A">
+            <Block type="sound_play_block">
+              <Value name="SOUND">
+                <Shadow type="text">
+                  <Field name="TEXT">abc</Field>
+                </Shadow>
+              </Value>
+            </Block>
+          </Category>
           <Category name="스마트홈" colour="#AE76F5">
-          <Block type="text_print"></Block>
+            <Block type="text_print"></Block>
             <Block type="servo_motor_block" />
             <Block type="rgb_block" />
             <Block type="led_on_off_block" />
@@ -136,8 +145,7 @@ class App extends React.Component {
             <Block type="lcd_set_pos_block" />
             <Block type="lcd_message_block" />
           </Category>
-        </BlocklyComponent>
-
+        </BlocklyComponent> 
       </div>
     );
   }

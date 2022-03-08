@@ -12,3 +12,4 @@ import './smart_home_blocks/led_on_off_block.js';
 import './smart_home_blocks/lcd_clear_block.js';
 import './smart_home_blocks/lcd_set_pos_block.js';
 import './smart_home_blocks/lcd_message_block.js';
+import './sound_blocks/sound_play_block.js';
