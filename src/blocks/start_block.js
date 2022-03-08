@@ -10,6 +10,7 @@ var startBlock = {
 
 Blockly.JavaScript['start_block'] = function() {
     var code = `//Start
+    console.log("START");
     let date = Date.now();
     let currentDate = null;\n`;
     return code;

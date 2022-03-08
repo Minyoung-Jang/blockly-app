@@ -21,8 +21,7 @@ Blockly.JavaScript['infinite_loop'] = function(block) {
     var blockCode = Blockly.JavaScript.blockToCode(statement);
     var code =
         `while(true){
-      ${blockCode}
-    }\n`;
+      ${blockCode}}\n`;
     return code;
 };
 

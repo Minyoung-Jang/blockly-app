@@ -17,14 +17,22 @@ class App extends React.Component {
 
 
   generateCode = () => {
+    let evalCode;
     var codeList = BlocklyJS.workspaceToCode(
       this.simpleWorkspace.current.workspace
     );
 
     for (var code of codeList.split("\n\n")) {
+      if(code.split(" ")[0] === "var"){
+        evalCode = code;
+      }
+
       if (code.includes("//Start\n")) {
+        evalCode = evalCode + code;
         try{
-          eval(code);
+          console.log(evalCode);
+          eval(evalCode);
+          console.log("END");
         }catch(err){
           console.log("CODE_FAIL");
         }
@@ -120,6 +128,7 @@ class App extends React.Component {
             </Block>
           </Category>
           <Category name="스마트홈" colour="#AE76F5">
+          <Block type="text_print"></Block>
             <Block type="servo_motor_block" />
             <Block type="rgb_block" />
             <Block type="led_on_off_block" />

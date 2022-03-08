@@ -17,7 +17,9 @@ class BlocklyComponent extends React.Component {
 
     componentDidMount() {
         const { initialXml, children, ...rest } = this.props;
-        Blockly.ContextMenuRegistry.registry.unregister('workspaceDelete')
+        Blockly.ContextMenuRegistry.registry.unregister('workspaceDelete');
+        Blockly.ContextMenuRegistry.registry.unregister('undoWorkspace');
+        Blockly.ContextMenuRegistry.registry.unregister('redoWorkspace');
         this.primaryWorkspace = Blockly.inject(
             this.blocklyDiv.current,
             {
@@ -60,7 +62,6 @@ class BlocklyComponent extends React.Component {
         if (initialXml) {
             Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialXml), this.primaryWorkspace);
         }
-
     }
 
     get workspace() {
