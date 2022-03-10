@@ -49,7 +49,7 @@ class App extends React.Component {
             <div id="subtitle">PROJECT NAME</div>
             <div id="title">인공지능 홈</div>
           </div>
-          <button id="codeButton" onClick={this.generateCode}> START </button>
+          <button id="codeButton" onClick={this.generateCode}>&#9654;&nbsp;&nbsp;START </button>
         </div>
         <BlocklyComponent
           readOnly={false} trashcan={true} media={'media/'}
@@ -136,7 +136,6 @@ class App extends React.Component {
             </Block>
           </Category>
           <Category name="스마트홈" colour="#AE76F5">
-            <Block type="text_print"></Block>
             <Block type="servo_motor_block" />
             <Block type="rgb_block" />
             <Block type="led_on_off_block" />
