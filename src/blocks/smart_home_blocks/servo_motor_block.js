@@ -2,7 +2,7 @@ import * as Blockly from 'blockly/core';
 
 var servoMotorBlock = {
     "type": "servo_motor_block",
-    "message0": "서보모터를 %1 돌리기",
+    "message0": "서보모터를 %1로 정하기",
     "args0": [{
         "type": "field_dropdown",
         "name": "degree",
