@@ -33,6 +33,13 @@
     line-height: 0%;
 }
 
+#codeButton span {
+    font-size: 14px;
+    width: 100%;
+    height: auto;
+}
+
+
 #box {
     flex-basis: 183.5px;
     flex-grow: 0;
