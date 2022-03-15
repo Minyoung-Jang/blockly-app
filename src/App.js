@@ -49,7 +49,7 @@ class App extends React.Component {
             <div id="subtitle">PROJECT NAME</div>
             <div id="title">인공지능 홈</div>
           </div>
-          <button id="codeButton" onClick={this.generateCode}><span>&#x25BA; </span>START </button>
+          <button id="codeButton" onClick={this.generateCode}><span>&#9656;&nbsp;&nbsp;</span>START</button>
         </div>
         <BlocklyComponent
           readOnly={false} trashcan={true} media={'media/'}

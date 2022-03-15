@@ -22,22 +22,29 @@
 #codeButton {
     border: none;
     margin-right: 32px;
+    padding-bottom: 4px;
     width: 80px;
-    height: 28px;
+    height: 30px;
     background: #65A767;
     border-radius: 30px;
     align-self: center;
     color: white;
     font-weight: 900;
-    font-size: 12px;
-    line-height: 0%;
+    font-size: 14px;
 }
 
 #codeButton span {
-    font-size: 14px;
-    width: 100%;
-    height: auto;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: -1px;
 }
+/* 
+#codeButton #start{
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    height: -5px;
+} */
 
 
 #box {
