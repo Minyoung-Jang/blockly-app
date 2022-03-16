@@ -27,24 +27,19 @@
     height: 30px;
     background: #65A767;
     border-radius: 30px;
-    align-self: center;
     color: white;
     font-weight: 900;
-    font-size: 14px;
 }
 
-#codeButton span {
-    font-size: 18px;
-    text-align: center;
+#codeButton #icon {
+    font-size: 17px;
     letter-spacing: -1px;
 }
-/* 
+
 #codeButton #start{
     color: white;
-    font-size: 13px;
-    text-align: center;
-    height: -5px;
-} */
+    font-size: 14px;
+}
 
 
 #box {
