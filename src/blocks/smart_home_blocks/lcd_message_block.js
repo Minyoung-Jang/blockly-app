@@ -2,7 +2,7 @@ import * as Blockly from 'blockly/core';
 
 var lcdMessageBlock = {
     "type": "lcd_message_block",
-    "message0": "LCD에  \" %1 \"  출력하기",
+    "message0": "LCD에 %1 출력하기",
     "args0": [{
         "type": "field_input",
         "name": "message",

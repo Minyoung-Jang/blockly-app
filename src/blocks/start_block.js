@@ -4,7 +4,7 @@ let isAble = false;
 
 var startBlock = {
     "type": "start_block",
-    "message0": "▶︎ 시작",
+    "message0": "▶︎ 버튼을 클릭했을 때",
     "nextStatement": true,
 };
 
