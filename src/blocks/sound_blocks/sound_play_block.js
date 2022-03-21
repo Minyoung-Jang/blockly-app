@@ -6,7 +6,7 @@ var soundPlayBlock = {
     "args0": [{
         "type": "field_input",
         "name": "SOUND",
-        "text": "abc",
+        "text": "안녕하세요",
         "output": "String",
     }],
     "previousStatement": null,
