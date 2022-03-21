@@ -88,6 +88,9 @@ class App extends React.Component {
           </Category>
           <Category name="변수" colour="#E99F38" custom="VARIABLE" />
           <Category name="연산" colour="#7AB964">
+            <Block type="math_number">
+              <Field name="NUM">123</Field>
+            </Block>
             <Block type="math_arithmetic">
               <Value name="A">
                 <Shadow type="math_number">
