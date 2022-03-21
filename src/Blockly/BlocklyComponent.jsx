@@ -227,12 +227,13 @@ class BlocklyComponent extends React.Component {
 
         if (initialXml) {
             Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialXml), this.primaryWorkspace);
-
         }
 
 
         function workspaceChanged(event) {
         }
+        
+        this.primaryWorkspace.trashcan.flyout = null;
 
         this.primaryWorkspace.addChangeListener(workspaceChanged);
 
