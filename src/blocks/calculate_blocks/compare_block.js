@@ -7,6 +7,7 @@ var compareBlock = {
       type: "input_value",
       name: "A",
       text: "1",
+      output: "NUMBER",
     },
     {
       type: "field_dropdown",
@@ -23,6 +24,7 @@ var compareBlock = {
       type: "input_value",
       name: "B",
       text: "1",
+      output: "NUMBER",
     },
   ],
   inputsInline: true,
@@ -33,8 +35,15 @@ var compareBlock = {
 };
 
 Blockly.JavaScript["compare_block"] = function (block) {
-  var a = block.getFieldValue("A");
-  var b = block.getFieldValue("B");
+  var a = block.getInputTargetBlock("A");
+  var b = block.getInputTargetBlock("B");
+  // var myvar = Blockly.JavaScript.variableDB_.getName(
+  //   block.getFieldValue("A"),
+  //   Blockly.VARIABLE_CATEGORY_NAME
+  // );
+  // console.log("var : " + myvar);
+  console.log(a);
+  console.log("B : " + b);
   var operator = block.getFieldValue("COMPARE");
   var code = `${a} ${operator} ${b}`;
   return [code, Blockly.JavaScript.ORDER_ADDITION];

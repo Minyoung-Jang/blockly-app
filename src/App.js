@@ -23,6 +23,8 @@ class App extends React.Component {
     );
 
     for (var code of codeList.split("\n\n")) {
+
+     
       if (code.split(" ")[0] === "var") {
         evalCode = code;
       }
@@ -103,7 +105,7 @@ class App extends React.Component {
                 </Shadow>
               </Value>
             </Block>
-            <Block type="compare_block">
+            <Block type="logic_compare">
               <Value name="A">
                 <Shadow type="math_number">
                   <Field name="NUM">1</Field>
