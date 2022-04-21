@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/blockly-app/static/css/main.242ec1c3.chunk.css",
-    "main.js": "/blockly-app/static/js/main.a7a0aa18.chunk.js",
-    "main.js.map": "/blockly-app/static/js/main.a7a0aa18.chunk.js.map",
+    "main.js": "/blockly-app/static/js/main.f0ae0524.chunk.js",
+    "main.js.map": "/blockly-app/static/js/main.f0ae0524.chunk.js.map",
     "runtime-main.js": "/blockly-app/static/js/runtime-main.464cc80d.js",
     "runtime-main.js.map": "/blockly-app/static/js/runtime-main.464cc80d.js.map",
     "static/js/2.67ff9ddb.chunk.js": "/blockly-app/static/js/2.67ff9ddb.chunk.js",
@@ -10,12 +10,12 @@
     "index.html": "/blockly-app/index.html",
     "static/css/main.242ec1c3.chunk.css.map": "/blockly-app/static/css/main.242ec1c3.chunk.css.map",
     "static/js/2.67ff9ddb.chunk.js.LICENSE.txt": "/blockly-app/static/js/2.67ff9ddb.chunk.js.LICENSE.txt",
-    "static/js/main.a7a0aa18.chunk.js.LICENSE.txt": "/blockly-app/static/js/main.a7a0aa18.chunk.js.LICENSE.txt"
+    "static/js/main.f0ae0524.chunk.js.LICENSE.txt": "/blockly-app/static/js/main.f0ae0524.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.464cc80d.js",
     "static/js/2.67ff9ddb.chunk.js",
     "static/css/main.242ec1c3.chunk.css",
-    "static/js/main.a7a0aa18.chunk.js"
+    "static/js/main.f0ae0524.chunk.js"
   ]
 }
