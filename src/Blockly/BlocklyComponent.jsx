@@ -103,6 +103,43 @@ class BlocklyComponent extends React.Component {
       },
     };
 
+    Blockly.Blocks["variables_set"] = {
+      init: function () {
+        this.jsonInit({
+          type: "variables_set",
+          message0: "%{BKY_VARIABLES_SET}",
+          args0: [
+            {
+              type: "field_variable",
+              name: "VAR",
+              variable: "%{BKY_VARIABLES_DEFAULT_NAME}",
+            },
+            {
+              type: "input_value",
+              name: "VALUE",
+              check: "Number",
+            },
+          ],
+          previousStatement: null,
+          nextStatement: null,
+          style: "variable_blocks",
+          tooltip: "%{BKY_VARIABLES_SET_TOOLTIP}",
+          helpUrl: "%{BKY_VARIABLES_SET_HELPURL}",
+          extensions: ["contextMenu_variableSetterGetter"],
+        });
+        this.toLocaleString("ko");
+        const xml = Blockly.Xml.textToDom(
+          '<shadow type="math_number"><field name="NUM">1</field></shadow>'
+        );
+        const connection = this.getInput("VALUE").connection;
+        connection.setShadowDom(xml);
+        let shadow = connection.getShadowDom();
+        shadow.innerHTML = "<field name=\"NUM\" is=\"blockly\">1</field>";
+        connection.setShadowDom(shadow);
+      },
+      onchange: function (event) {},
+    };
+
     this.primaryWorkspace = Blockly.inject(this.blocklyDiv.current, {
       toolbox: this.toolbox.current,
       theme: {
@@ -134,7 +171,6 @@ class BlocklyComponent extends React.Component {
           flyoutBackgroundColour: "#4C536D99",
         },
       },
-
       ...rest,
     });
 

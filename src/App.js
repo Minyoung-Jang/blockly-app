@@ -1,20 +1,24 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import BlocklyComponent, { Block, Value, Field, Shadow, Category } from './Blockly';
+import BlocklyComponent, {
+  Block,
+  Value,
+  Field,
+  Shadow,
+  Category,
+} from "./Blockly";
 
-import BlocklyJS from 'blockly/javascript';
-import './blocks/customblocks';
-import './generator/generator';
-import './widgets/dialog.js'
-
+import BlocklyJS from "blockly/javascript";
+import "./blocks/customblocks";
+import "./generator/generator";
+import "./widgets/dialog.js";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.simpleWorkspace = React.createRef();
   }
-
 
   generateCode = () => {
     let evalCode;
@@ -23,8 +27,6 @@ class App extends React.Component {
     );
 
     for (var code of codeList.split("\n\n")) {
-
-     
       if (code.split(" ")[0] === "var") {
         evalCode = code;
       }
@@ -39,39 +41,49 @@ class App extends React.Component {
         }
       }
     }
-  }
+  };
 
   render() {
     return (
-      <div className="App" style={{ display: 'flex' }}>
-        <div id="box">
-        </div>
+      <div className="App" style={{ display: "flex" }}>
+        <div id="box"></div>
         <div id="box1">
           <div id="column">
             <div id="subtitle">PROJECT NAME</div>
             <div id="title">인공지능 홈</div>
           </div>
           <button id="codeButton" onClick={this.generateCode}>
-              <span id='icon'>&#9656;&nbsp;&nbsp;</span>
-            <div id='buttonSpace'>
+            <span id="icon">&#9656;&nbsp;&nbsp;</span>
+            <div id="buttonSpace">
               <span id="blank"></span>
-            <span id='start'>START&nbsp;</span>
+              <span id="start">START&nbsp;</span>
             </div>
           </button>
         </div>
         <BlocklyComponent
-          readOnly={false} trashcan={true} media={'media/'}
+          readOnly={false}
+          trashcan={true}
+          media={"media/"}
           ref={this.simpleWorkspace}
           move={{
             scrollbars: true,
             drag: true,
             wheel: true,
           }}
-          renderer={'zelos'}
+          zoom={{
+            controls: true,
+            wheel: true,
+            startScale: 1.0,
+            maxScale: 3,
+            minScale: 0.3,
+            scaleSpeed: 1.2,
+          }}
+          renderer={"zelos"}
           initialXml={`
               <xml xmlns="http://www.w3.org/1999/xhtml">
               </xml>
-            `}>
+            `}
+        >
           <Category name="시작" colour="#5AA8DF">
             <Block type="start_block" />
           </Category>
@@ -117,7 +129,7 @@ class App extends React.Component {
                 </Shadow>
               </Value>
             </Block>
-            <Block type="and_or_block" >
+            <Block type="and_or_block">
               <Value name="A">
                 <Block type="boolean_block">
                   <Field name="BOOL">TRUE</Field>
@@ -154,7 +166,7 @@ class App extends React.Component {
             <Block type="lcd_set_pos_block" />
             <Block type="lcd_message_block" />
           </Category>
-        </BlocklyComponent> 
+        </BlocklyComponent>
       </div>
     );
   }
