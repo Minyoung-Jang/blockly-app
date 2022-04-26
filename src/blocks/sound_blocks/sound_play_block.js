@@ -6,7 +6,7 @@ var soundPlayBlock = {
     "args0": [{
         "type": "field_input",
         "name": "SOUND",
-        "text": "abc",
+        "text": "안녕하세요",
         "output": "String",
     }],
     "previousStatement": null,
@@ -20,7 +20,11 @@ Blockly.JavaScript['sound_play_block'] = function(block) {
     var text = block.getFieldValue('SOUND');
 
     var code =
-        `console.log("SOUND,${text}");\n`;
+        `console.log("SOUND,${text}");\n` +
+        `date = Date.now();
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < 1000);\n`;
     return code;
 };
 
