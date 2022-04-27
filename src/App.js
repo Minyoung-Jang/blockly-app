@@ -14,14 +14,44 @@ import "./blocks/customblocks";
 import "./generator/generator";
 import "./widgets/dialog.js";
 
+let once = false;
+let codeStop = false;
+
+var myInterpreter = null;
+var runner;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.simpleWorkspace = React.createRef();
+    // var originalSetItem = localStorage.setItem;
+    // localStorage.setItem = function (key, value) {
+    //   var event = new Event("itemInserted");
+
+    //   event.value = value; // Optional..
+    //   event.key = key; // Optional..
+
+    //   document.dispatchEvent(event);
+
+    //   originalSetItem.apply(this, arguments);
+    // };
+
+    // var localStorageSetHandler = function (e) {
+    //   if (!once) {
+    //     once = true;
+    //     codeStop = true;
+    //     alert("WOOWOWOWOWOWOWWOO");
+    //   }
+    // };
+
+    // document.addEventListener("itemInserted", localStorageSetHandler, false);
   }
+
 
   generateCode = () => {
     let evalCode;
+    // localStorage.clear();
+
     var codeList = BlocklyJS.workspaceToCode(
       this.simpleWorkspace.current.workspace
     );
@@ -33,8 +63,15 @@ class App extends React.Component {
 
       if (code.includes("//Start\n")) {
         evalCode = evalCode + code;
+        // var acorn = require("acorn");
+        // acorn.parse(evalCode);
         try {
           eval(evalCode);
+          // if (codeStop) {
+          //   once = false;
+          //   codeStop = false;
+          //   return;
+          // }
           console.log("END");
         } catch (err) {
           console.log("CODE_FAIL");
@@ -74,9 +111,9 @@ class App extends React.Component {
             controls: true,
             wheel: true,
             startScale: 1.0,
-            maxScale: 3,
-            minScale: 0.3,
-            scaleSpeed: 1.2,
+            maxScale: 1.5,
+            minScale: 0.7,
+            scaleSpeed: 1.1,
           }}
           renderer={"zelos"}
           initialXml={`
