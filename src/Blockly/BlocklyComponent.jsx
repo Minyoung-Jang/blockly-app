@@ -35,12 +35,12 @@ class BlocklyComponent extends React.Component {
               type: "field_dropdown",
               name: "OP",
               options: [
-                ["==", "EQ"],
+                ["=", "EQ"],
                 ["\u2260", "NEQ"],
                 ["\u200f<", "LT"],
-                ["<=", "LTE"],
+                ["\u200f\u2264", "LTE"],
                 ["\u200f>", "GT"],
-                [">=", "GTE"],
+                ["\u200f\u2265", "GTE"],
               ],
             },
             { type: "input_value", name: "B" },
@@ -134,7 +134,7 @@ class BlocklyComponent extends React.Component {
         const connection = this.getInput("VALUE").connection;
         connection.setShadowDom(xml);
         let shadow = connection.getShadowDom();
-        shadow.innerHTML = "<field name=\"NUM\" is=\"blockly\">1</field>";
+        shadow.innerHTML = '<field name="NUM" is="blockly">1</field>';
         connection.setShadowDom(shadow);
       },
       onchange: function (event) {},
