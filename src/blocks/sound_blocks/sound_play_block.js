@@ -24,11 +24,9 @@ Blockly.JavaScript["sound_play_block"] = function (block) {
   var code =
     `console.log("SOUND,${text}");\n` +
     `date = Date.now();
-        do {
-          currentDate = Date.now();
-        } while (currentDate - date < ${text.length}*200);\n`;
-  //     +`console.log(codeStop);\n` +
-  // `if(codeStop){ return; }\n`
+      do {
+        currentDate = Date.now();
+      } while (currentDate - date < ${text.length}*150);\n`;
   return code;
 };
 

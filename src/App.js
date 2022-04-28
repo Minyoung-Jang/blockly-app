@@ -10,72 +10,61 @@ import BlocklyComponent, {
 } from "./Blockly";
 
 import BlocklyJS from "blockly/javascript";
+import "blockly/javascript_compressed";
 import "./blocks/customblocks";
 import "./generator/generator";
 import "./widgets/dialog.js";
+import WebWorkerEnabler from "./worker-builder";
+import WebWorker from "./worker";
 
-let once = false;
-let codeStop = false;
-
-var myInterpreter = null;
-var runner;
-
+let workerInstance = new WebWorkerEnabler(WebWorker);
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.simpleWorkspace = React.createRef();
-    // var originalSetItem = localStorage.setItem;
-    // localStorage.setItem = function (key, value) {
-    //   var event = new Event("itemInserted");
-
-    //   event.value = value; // Optional..
-    //   event.key = key; // Optional..
-
-    //   document.dispatchEvent(event);
-
-    //   originalSetItem.apply(this, arguments);
-    // };
-
-    // var localStorageSetHandler = function (e) {
-    //   if (!once) {
-    //     once = true;
-    //     codeStop = true;
-    //     alert("WOOWOWOWOWOWOWWOO");
-    //   }
-    // };
-
-    // document.addEventListener("itemInserted", localStorageSetHandler, false);
   }
-
-
   generateCode = () => {
     let evalCode;
-    // localStorage.clear();
+    workerInstance = new WebWorkerEnabler(WebWorker);
+
+    let once = false;
+
+    localStorage.clear();
 
     var codeList = BlocklyJS.workspaceToCode(
       this.simpleWorkspace.current.workspace
     );
 
+    var originalSetItem = localStorage.setItem;
+
+    localStorage.setItem = function (key, value) {
+      var event = new Event("itemInserted");
+
+      event.value = value; // Optional..
+      event.key = key; // Optional..
+
+      document.dispatchEvent(event);
+
+      originalSetItem.apply(this, arguments);
+    };
+
+    const localStorageSetHandler = function (e) {
+      if (!once) {
+        once = true;
+        workerInstance.terminate();
+      }
+    };
+
+    document.addEventListener("itemInserted", localStorageSetHandler, false);
+
     for (var code of codeList.split("\n\n")) {
       if (code.split(" ")[0] === "var") {
         evalCode = code;
       }
-
       if (code.includes("//Start\n")) {
         evalCode = evalCode + code;
-        // var acorn = require("acorn");
-        // acorn.parse(evalCode);
-        try {
-          eval(evalCode);
-          // if (codeStop) {
-          //   once = false;
-          //   codeStop = false;
-          //   return;
-          // }
-          console.log("END");
-        } catch (err) {
-          console.log("CODE_FAIL");
-        }
+        console.log(evalCode);
+        workerInstance.postMessage(evalCode);
       }
     }
   };
